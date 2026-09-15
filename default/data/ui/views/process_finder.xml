@@ -22,13 +22,13 @@
     <panel>
       <table>
         <search>
-          <query>`sysmon` process="$procsel$" | dedup ComputerName, MD5
+          <query>`sysmon` Image="$procsel$" | dedup ComputerName, MD5
 | eval TIME=strftime(_time,"%m/%d/%Y %I:%M:%S %p")
 | eventstats dc(ComputerName) as total_host
-| stats earliest(TIME) count values(total_host) AS total_host by MD5, process
+| stats earliest(TIME) count values(total_host) AS total_host by MD5, Image
 | eval majority_percent=round((count/total_host)*100,2)
 | where majority_percent &lt; $ltpercent$
-| table MD5 process earliest(TIME) count majority_percent total_host</query>
+| table MD5 Image earliest(TIME) count majority_percent total_host</query>
           <earliest>$timesel.earliest$</earliest>
           <latest>$timesel.latest$</latest>
           <sampleRatio>1</sampleRatio>
