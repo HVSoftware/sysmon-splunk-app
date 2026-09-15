@@ -18,7 +18,7 @@
       </input>
       <table>
         <search>
-          <query>`sysmon` LogonGuid=* $usrsel$  | dedup LogonGuid | eval Time=strftime(_time,"%m/%d/%Y %I:%M:%S %p") | table Time LogonGuid user Computer</query>
+          <query>`sysmon` LogonGuid=* $usrsel$  | dedup LogonGuid | eval Time=strftime(_time,"%m/%d/%Y %I:%M:%S %p") | table Time LogonGuid user ComputerName</query>
           <earliest>$timepicker.earliest$</earliest>
           <latest>$timepicker.latest$</latest>
           <sampleRatio>1</sampleRatio>

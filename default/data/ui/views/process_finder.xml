@@ -22,9 +22,9 @@
     <panel>
       <table>
         <search>
-          <query>`sysmon` process="$procsel$" | dedup Computer, MD5
+          <query>`sysmon` process="$procsel$" | dedup ComputerName, MD5
 | eval TIME=strftime(_time,"%m/%d/%Y %I:%M:%S %p")
-| eventstats dc(Computer) as total_host
+| eventstats dc(ComputerName) as total_host
 | stats earliest(TIME) count values(total_host) AS total_host by MD5, process
 | eval majority_percent=round((count/total_host)*100,2)
 | where majority_percent &lt; $ltpercent$

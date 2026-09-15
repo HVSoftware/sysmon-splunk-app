@@ -108,7 +108,7 @@
       <title>Events by Host</title>
       <table>
         <search>
-          <query>`sysmon` | stats count by Computer | sort - count</query>
+          <query>`sysmon` | stats count by ComputerName | sort - count</query>
           <earliest>$time.earliest$</earliest>
           <latest>$time.latest$</latest>
           <sampleRatio>1</sampleRatio>
