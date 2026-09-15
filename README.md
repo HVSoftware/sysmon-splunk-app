@@ -37,7 +37,7 @@ A macro is used for all saved searches, you will need to modify it for your envi
 
 Macros: Settings --> Advanced Search --> Search Macros. Edit to your environment
 
-Default - sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+Default - sourcetype="WinEventLog:Sysmon"
 
 Thats it.
 
