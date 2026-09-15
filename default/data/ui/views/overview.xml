@@ -6,7 +6,7 @@
       <title>Computer Count</title>
       <single>
         <search>
-          <query>`sysmon` | stats dc(Computer)</query>
+          <query>`sysmon` | stats dc(ComputerName)</query>
           <earliest>-24h@h</earliest>
           <latest>now</latest>
           <sampleRatio>1</sampleRatio>

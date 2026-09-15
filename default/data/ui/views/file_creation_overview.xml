@@ -63,7 +63,7 @@
       <title>Top Systems</title>
       <chart>
         <search>
-          <query>`sysmon` EventCode=11 | top Computer</query>
+          <query>`sysmon` EventCode=11 | top ComputerName</query>
           <earliest>$time.earliest$</earliest>
           <latest>$time.latest$</latest>
           <sampleRatio>1</sampleRatio>
