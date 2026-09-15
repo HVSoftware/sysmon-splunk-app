@@ -34,7 +34,7 @@
       <chart>
         <title>Network Destinations</title>
         <search>
-          <query>`sysmon`  EventDescription="Network Connect" ComputerName=$comp$ user=$usr$ | top dest_host | rename dest_host AS "Destination"</query>
+          <query>`sysmon`  EventDescription="Network Connect" ComputerName=$comp$ user=$usr$ | top DestinationHostname | rename DestinationHostname AS "Destination"</query>
           <earliest>$timesel.earliest$</earliest>
           <latest>$timesel.latest$</latest>
         </search>
@@ -45,7 +45,7 @@
       <chart>
         <title>Network Ports</title>
         <search>
-          <query>`sysmon`  EventDescription="Network Connect" ComputerName=$comp$ user=$usr$ | top dest_port | rename dest_port  AS "Destination Port"</query>
+          <query>`sysmon`  EventDescription="Network Connect" ComputerName=$comp$ user=$usr$ | top DestinationPort | rename DestinationPort  AS "Destination Port"</query>
           <earliest>$timesel.earliest$</earliest>
           <latest>$timesel.latest$</latest>
         </search>
@@ -80,7 +80,7 @@
       <table>
         <title>Network Applcations</title>
         <search>
-          <query>`sysmon`  EventDescription="Network Connect" ComputerName=$comp$ user=$usr$ | stats values(dest_host) by Image</query>
+          <query>`sysmon`  EventDescription="Network Connect" ComputerName=$comp$ user=$usr$ | stats values(DestinationHostname) by Image</query>
           <earliest>$timesel.earliest$</earliest>
           <latest>$timesel.latest$</latest>
         </search>

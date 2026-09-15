@@ -62,7 +62,7 @@
       <title>Top Destinations</title>
       <table>
         <search>
-          <query>`sysmon`  EventDescription="Network Connect" | top dest_host | rename dest_host AS "Destination"</query>
+          <query>`sysmon`  EventDescription="Network Connect" | top DestinationHostname | rename DestinationHostname AS "Destination"</query>
           <earliest>$time.earliest$</earliest>
           <latest>$time.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -73,7 +73,7 @@
       <title>Top Destination Ports</title>
       <chart>
         <search>
-          <query>`sysmon`  EventDescription="Network Connect" | top dest_port | rename dest_port  AS "Destination Port"</query>
+          <query>`sysmon`  EventDescription="Network Connect" | top DestinationPort | rename DestinationPort  AS "Destination Port"</query>
           <earliest>$time.earliest$</earliest>
           <latest>$time.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -109,7 +109,7 @@
       <title>Destination Locations</title>
       <map>
         <search>
-          <query>`sysmon` EventDescription="Network Connect" | iplocation dest_ip | geostats count by dest_ip</query>
+          <query>`sysmon` EventDescription="Network Connect" | iplocation DestinationIP | geostats count by DestinationIP</query>
           <earliest>$time.earliest$</earliest>
           <latest>$time.latest$</latest>
         </search>
